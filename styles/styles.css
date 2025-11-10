@@ -1,0 +1,140 @@
+/* Estilos para la Calculadora  */
+
+/* Aplica a todos los elementos: elimina márgenes y paddings por defecto, y usa box-sizing para incluir bordes y padding en el tamaño total */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilo general del cuerpo: fondo oscuro, centrado vertical y horizontal, tipografía Poppins, color de texto blanco */
+body {
+    background-color: #0f2537;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: "Poppins", sans-serif;
+    color: white;
+}
+
+/* Título principal: margen inferior, color cian, sombra luminosa, tamaño y peso de fuente */
+h1 {
+    margin-bottom: 20px;
+    color: #00ffff;
+    text-shadow: 0 0 10px #00ffff;
+    font-size: 28px;
+    font-weight: 600;
+}
+
+/* Contenedor de la calculadora: fondo oscuro, borde cian, esquinas redondeadas, padding interno, ancho fijo */
+.calculadora {
+    background-color: #0f2537;
+    border: 2px solid #00bfa6;
+    border-radius: 10px;
+    padding: 15px;
+    /*box-shadow: 0 0 20px #00bfa6;*/ /*  sombra externa */
+    width: 220px;
+}
+
+/* Campo de pantalla (input): fondo transparente, sin borde, texto blanco alineado a la izquierda, altura de una línea */
+.pantalla {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 20px;
+    width: 100%;
+    height: 1.5em;                         /* Solo una línea visible (segunda fila) */
+    text-align: left;                      /* Escribe desde la izquierda */
+    margin: 0;
+    outline: none;
+    font-family: "Poppins", sans-serif;
+    line-height: 1.5em;                    /* Altura de línea para centrar texto */
+}
+
+/* Contenedor de la pantalla: usa flexbox para centrar verticalmente, con borde, fondo y padding */
+.pantalla-container {
+    display: flex;                          /* Flex para centrar verticalmente */
+    flex-direction: column;                 /* Dirección vertical */
+    justify-content: center;                /* Centra el input (segunda fila visual) */
+    height: 90px;                           /* Altura equivalente a 3 líneas */
+    border: 2px solid #00bfa6;              /* Borde verde agua */
+    border-radius: 10px;                    /* Bordes redondeados */
+    background-color: #0f2537;              /* Fondo oscuro */
+    /*box-shadow: 0 0 10px #00bfa6 inset,
+                0 0 8px #00bfa6;*/          /* efecto de brillo interno y externo */
+    margin-bottom: 15px;                    /* Separación con los botones */
+    padding: 5px 10px;                      /* Espacio interno */
+    box-sizing: border-box;                 /* Incluye padding en el tamaño total */
+}
+
+/* Contenedor de botones: usa grid con 4 columnas y espacio entre ellos */
+.botones {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+/* Estilo general de los botones: fondo transparente, borde cian, texto cian, fuente Poppins, redondeado, animación al pasar el mouse */
+button {
+    background-color: transparent;
+    border: 1px solid #00bfa6;
+    color: #00ffff;
+    font-size: 18px;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.2s;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+}
+
+/* Efecto al pasar el mouse: fondo cian, texto oscuro, sombra luminosa, levanta el botón ligeramente */
+button:hover {
+    background-color: #00bfa6;
+    color: #0f2537;
+    box-shadow: 0 0 10px #00bfa6;
+    transform: translateY(-1px);
+}
+
+/* Efecto al hacer clic: vuelve a su posición original y reduce la sombra */
+button:active {
+    transform: translateY(0);
+    box-shadow: 0 0 5px #00bfa6;
+}
+
+/* Botón igual (=): ocupa dos filas en el grid, fondo transparente, texto cian, borde y estilo similar a otros botones */
+.igual {
+  grid-row: span 2;
+  background-color: transparent;
+  color: #00ffff;
+  font-weight: 600;
+  border: 1px solid #00bfa6;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+/* Efecto hover del botón igual: fondo cian claro, sombra más intensa */
+.igual:hover {
+  background-color: #00ffff;
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/* Estilos adaptativos para pantallas pequeñas (menos de 480px de ancho) */
+@media (max-width: 480px) {
+    .calculadora {
+        width: 200px;           /* Reduce el ancho de la calculadora */
+        padding: 12px;          /* Reduce el padding interno */
+    }
+    
+    button {
+        font-size: 16px;        /* Reduce el tamaño de fuente de los botones */
+        padding: 8px;           /* Reduce el padding de los botones */
+    }
+    
+    h1 {
+        font-size: 24px;        /* Reduce el tamaño del título */
+    }
+}
